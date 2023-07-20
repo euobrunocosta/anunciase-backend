@@ -17,8 +17,8 @@ const listStores = async (
 
   const stores = await getStores(citySlug, categorySlug)
   const groupedStores = categorySlug
-    ? addNameOfCategoryToStores(stores, categorySlug)
-    : groupStoresByCategory(stores, limit)
+    ? addNameOfCategoryToStores(stores as TStore[], categorySlug)
+    : groupStoresByCategory(stores as TStore[], limit)
 
   res.send(groupedStores)
 }

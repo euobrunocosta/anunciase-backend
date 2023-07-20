@@ -16,7 +16,7 @@ const getStore = async (storeSlug: string) => {
     }
   })
 
-  return store
+  return store as unknown
 }
 
 export default getStore

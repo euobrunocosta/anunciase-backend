@@ -31,7 +31,7 @@ const getStores = async (citySlug: string, categorySlug?: string) => {
     }
   })
 
-  return stores
+  return stores as unknown
 }
 
 export default getStores

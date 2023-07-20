@@ -6,7 +6,7 @@ const getStoreDetails = async (req: Request<TRequestParamsStoreDetails>, res: Re
   const { storeSlug } = req.params
 
   const store = await getStore(storeSlug)
-  const storeWithLinkTitles = addLinkTitlesToStore(store)
+  const storeWithLinkTitles = addLinkTitlesToStore(store as TStore)
 
   res.send(storeWithLinkTitles)
 }
