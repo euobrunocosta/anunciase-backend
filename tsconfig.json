@@ -9,11 +9,21 @@
     "baseUrl": "./src",
     "outDir": "dist",
     "paths": {
-      "@controllers/*": ["./api/controllers/*"],
-      "@domain/*": ["./domain/*"],
-      "@infra/*": ["./api/infra/*"],
-      "@utils/*": ["./api/utils/*"],
-      "@routes/*": ["./api/routes/*"]
+      "@controllers/*": [
+        "./api/controllers/*"
+      ],
+      "@domain/*": [
+        "./domain/*"
+      ],
+      "@infra/*": [
+        "./api/infra/*"
+      ],
+      "@utils/*": [
+        "./api/utils/*"
+      ],
+      "@routes/*": [
+        "./api/routes/*"
+      ]
     }
   }
 }

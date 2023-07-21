@@ -6,7 +6,7 @@ services:
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-0A?h%S99}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-B18c05s81}
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
