@@ -27,7 +27,12 @@ const getStores = async (citySlug: string, categorySlug?: string) => {
         }
       },
       category: true,
-      link: true
+      link: true,
+      products: {
+        include: {
+          category: true
+        }
+      }
     }
   })
 

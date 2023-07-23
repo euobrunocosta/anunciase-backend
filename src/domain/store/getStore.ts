@@ -12,7 +12,12 @@ const getStore = async (storeSlug: string) => {
         }
       },
       category: true,
-      link: true
+      link: true,
+      products: {
+        include: {
+          category: true
+        }
+      }
     }
   })
 

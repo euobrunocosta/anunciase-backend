@@ -19,8 +19,20 @@ model Store {
   address   Address    @relation(fields: [addressId], references: [id])
   category  Category[]
   link      Link[]
+  products  Product[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+}
+
+model Product {
+  id         String   @id @default(uuid())
+  title      String
+  slug       String
+  stores     Store[]
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
 model Link {
@@ -56,10 +68,11 @@ model City {
 }
 
 model Category {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   title     String
   slug      String
   stores    Store[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }

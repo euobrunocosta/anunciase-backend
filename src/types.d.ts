@@ -29,6 +29,10 @@ type TRequestParamsListSotores = {
 
 type TRequestParamsCityDetails = TRequestParamsListSotores
 
+type TRequestParamsProductDetails = {
+  productSlug
+}
+
 type TRequestQueryListSotores = {
   categorySlug?: string
   limit?: number

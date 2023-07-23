@@ -12,7 +12,9 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc -p .",
     "postbuild": "ef-tspm",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "studio": "prisma studio",
+    "migrate": "prisma migrate dev"
   },
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
