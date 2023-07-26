@@ -11,28 +11,30 @@ datasource db {
 }
 
 model Store {
-  id        String     @id @default(uuid())
-  title     String
-  slug      String     @unique
-  image     String
-  addressId String     @unique
-  address   Address    @relation(fields: [addressId], references: [id])
-  category  Category[]
-  link      Link[]
-  products  Product[]
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  id          String       @id @default(uuid())
+  title       String
+  slug        String       @unique
+  image       String
+  addressId   String       @unique
+  address     Address      @relation(fields: [addressId], references: [id])
+  category    Category[]
+  link        Link[]
+  products    Product[]
+  sponsorings Sponsoring[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 }
 
 model Product {
-  id         String   @id @default(uuid())
+  id         String       @id @default(uuid())
   title      String
   slug       String
   stores     Store[]
   categoryId String
-  category   Category @relation(fields: [categoryId], references: [id])
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  category   Category     @relation(fields: [categoryId], references: [id])
+  sponsoring Sponsoring[]
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
 }
 
 model Link {
@@ -68,11 +70,25 @@ model City {
 }
 
 model Category {
-  id        String    @id @default(uuid())
-  title     String
-  slug      String
-  stores    Store[]
-  products  Product[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id          String       @id @default(uuid())
+  title       String
+  slug        String
+  stores      Store[]
+  products    Product[]
+  sponsorings Sponsoring[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Sponsoring {
+  id         String     @id @default(uuid())
+  storeId    String
+  store      Store      @relation(fields: [storeId], references: [id])
+  categories Category[]
+  products   Product[]
+  start      DateTime
+  end        DateTime
+  active     Boolean    @default(false)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
 }
