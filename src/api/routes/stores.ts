@@ -7,7 +7,7 @@ const storesRouter = Router()
 
 storesRouter.get('/city/:citySlug', listStores)
 storesRouter.get('/:storeSlug', getStoreDetails)
-storesRouter.post('/', addStore)
+storesRouter.post('/:tokenId', addStore)
 
 
 export default storesRouter

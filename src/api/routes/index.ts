@@ -1,5 +1,6 @@
 import { Request, Response, Router } from 'express'
 import citiesRouter from './cities'
+import permissionRouter from './permission'
 import productsRouter from './products'
 import storesRouter from './stores'
 
@@ -14,6 +15,7 @@ router.get('/', (_: Request, res: Response) => {
 router.use('/cities', citiesRouter)
 router.use('/stores', storesRouter)
 router.use('/products', productsRouter)
+router.use('/permission', permissionRouter)
 
 
 export default router

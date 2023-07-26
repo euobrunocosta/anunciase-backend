@@ -1,8 +1,11 @@
 import createAddress from '@domain/address/createAddress'
 import createStore from '@domain/store/createStore'
+import getToken from '@domain/token/getToken'
 import { Request, Response } from 'express'
 
 const addStore = async (req: Request, res: Response) => {
+  const { tokenId } = req.params
+
   const {
     title,
     slug,
@@ -12,6 +15,26 @@ const addStore = async (req: Request, res: Response) => {
     neighbourhood,
     citiId
   } = req.body
+
+  const token = await getToken(tokenId);
+
+  if (!token) {
+    return res.status(403).send({
+      message: 'This token is invalid'
+    })
+  }
+
+  if (!token.active) {
+    return res.status(403).send({
+      message: 'This token is not active'
+    })
+  }
+
+  if (token.cityId !== citiId) {
+    return res.status(403).send({
+      message: 'This token does\'t have permission to create stores on that city'
+    })
+  }
 
   const addressData: TAddressCreate = {
     street,

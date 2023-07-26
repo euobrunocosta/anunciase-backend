@@ -6,5 +6,4 @@ const productsRouter = Router()
 
 productsRouter.get('/:productSlug', getProductDetails)
 
-
 export default productsRouter
