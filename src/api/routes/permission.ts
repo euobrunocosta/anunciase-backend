@@ -3,6 +3,6 @@ import { Router } from 'express'
 
 const permissionRouter = Router()
 
-permissionRouter.get('/token/:tokenId', checkPermissionCreate)
+permissionRouter.get('/token/:tokenId/city', checkPermissionCreate)
 
 export default permissionRouter
