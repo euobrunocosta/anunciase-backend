@@ -10,9 +10,23 @@ type TLink = {
   customTitle: string
 }
 
+type TAddressCreate = {
+  street: string
+  number: string
+  neighbourhood: string
+  citiId: string
+}
+
 type TStore = {
   category: TCategory[]
   link: TLink[]
+}
+
+type TStoreCreate = {
+  title: string
+  slug: string
+  image: string
+  addressId: string
 }
 
 type TStoresByCategory = {
