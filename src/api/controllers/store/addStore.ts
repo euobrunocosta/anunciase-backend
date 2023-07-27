@@ -13,7 +13,7 @@ const addStore = async (req: Request, res: Response) => {
     street,
     number,
     neighbourhood,
-    citiId
+    cityId
   } = req.body
 
   const token = await getToken(tokenId);
@@ -30,7 +30,7 @@ const addStore = async (req: Request, res: Response) => {
     })
   }
 
-  if (token.cityId !== citiId) {
+  if (token.cityId !== cityId) {
     return res.status(403).send({
       message: 'This token does\'t have permission to create stores on that city'
     })
@@ -40,7 +40,7 @@ const addStore = async (req: Request, res: Response) => {
     street,
     number,
     neighbourhood,
-    citiId
+    citiId: cityId
   }
 
   const newAddress = await createAddress(addressData)
