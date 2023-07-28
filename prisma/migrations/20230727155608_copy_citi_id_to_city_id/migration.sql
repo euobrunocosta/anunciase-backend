@@ -1,0 +1,1 @@
+UPDATE "Address" SET "cityId" = "citiId";

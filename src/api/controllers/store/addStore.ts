@@ -16,7 +16,7 @@ const addStore = async (req: Request, res: Response) => {
     cityId
   } = req.body
 
-  const token = await getToken(tokenId);
+  const token = await getToken(tokenId)
 
   if (!token) {
     return res.status(403).send({
@@ -40,7 +40,7 @@ const addStore = async (req: Request, res: Response) => {
     street,
     number,
     neighbourhood,
-    citiId: cityId
+    cityId
   }
 
   const newAddress = await createAddress(addressData)

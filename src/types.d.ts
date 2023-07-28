@@ -14,7 +14,7 @@ type TAddressCreate = {
   street: string
   number: string
   neighbourhood: string
-  citiId: string
+  cityId: string
 }
 
 type TStore = {
