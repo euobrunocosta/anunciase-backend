@@ -55,3 +55,7 @@ type TRequestQueryListSotores = {
 type TRequestParamsStoreDetails = {
   storeSlug: string
 }
+
+type TConnect = {
+  id: string
+}

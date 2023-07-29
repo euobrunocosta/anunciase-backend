@@ -1,5 +1,6 @@
 import createAddress from '@domain/address/createAddress'
 import createStore from '@domain/store/createStore'
+import getStore from '@domain/store/getStore'
 import getToken from '@domain/token/getToken'
 import { Request, Response } from 'express'
 
@@ -10,6 +11,8 @@ const addStore = async (req: Request, res: Response) => {
     title,
     slug,
     image,
+    categories,
+    products,
     street,
     number,
     neighbourhood,
@@ -36,6 +39,14 @@ const addStore = async (req: Request, res: Response) => {
     })
   }
 
+  const existingStore = await getStore(slug);
+
+  if (existingStore) {
+    return res.status(400).send({
+      message: 'This slug already belongs to an existing store'
+    })
+  }
+
   const addressData: TAddressCreate = {
     street,
     number,
@@ -49,9 +60,13 @@ const addStore = async (req: Request, res: Response) => {
     title,
     slug,
     image,
-    addressId: newAddress.id
+    addressId: newAddress.id,
   }
-  const newStore = await createStore(storeData)
+
+  const categoryIds = (categories as string[]).map(id => ({ id }))
+  const productIds = (products as string[]).map(id => ({ id }))
+  
+  const newStore = await createStore(storeData, categoryIds, productIds)
 
   res.send({ newStore })
 }

@@ -13,6 +13,7 @@
     "build": "tsc -p .",
     "postbuild": "ef-tspm",
     "start": "node dist/server.js",
+    "deploy": "bash ./scripts/deploy.sh",
     "studio": "prisma studio",
     "migrate": "prisma migrate dev"
   },
