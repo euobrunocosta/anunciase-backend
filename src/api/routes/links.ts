@@ -1,4 +1,4 @@
-import addLink from '@controllers/link/addlink'
+import addLink from '@controllers/link/addLink'
 import { Router } from 'express'
 
 const linksRouter = Router()

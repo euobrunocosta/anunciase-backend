@@ -18,6 +18,7 @@ type TAddressCreate = {
 }
 
 type TStore = {
+  id?: string
   category: TCategory[]
   link: TLink[]
 }
