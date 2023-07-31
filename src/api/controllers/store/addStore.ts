@@ -1,3 +1,4 @@
+import { TOKEN_ERROR_MESSAGES } from '@controllers/constants'
 import createAddress from '@domain/address/createAddress'
 import createStore from '@domain/store/createStore'
 import getStore from '@domain/store/getStore'
@@ -23,19 +24,19 @@ const addStore = async (req: Request, res: Response) => {
 
   if (!token) {
     return res.status(403).send({
-      message: 'This token is invalid'
+      message: TOKEN_ERROR_MESSAGES.INVAILD
     })
   }
 
   if (!token.active) {
     return res.status(403).send({
-      message: 'This token is not active'
+      message: TOKEN_ERROR_MESSAGES.INACTIVE
     })
   }
 
   if (token.cityId !== cityId) {
     return res.status(403).send({
-      message: 'This token does\'t have permission to create stores on that city'
+      message: TOKEN_ERROR_MESSAGES.CITY
     })
   }
 
@@ -43,7 +44,7 @@ const addStore = async (req: Request, res: Response) => {
 
   if (existingStore) {
     return res.status(400).send({
-      message: 'This slug already belongs to an existing store'
+      message: 'O slug escolhido já está sendo usado por outra loja!'
     })
   }
 

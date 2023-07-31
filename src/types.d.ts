@@ -29,6 +29,22 @@ type TStoreCreate = {
   addressId: string
 }
 
+type TCategoryCreate = {
+  title: string
+  slug: string
+}
+
+type TProductCreate = TCategoryCreate & {
+  categoryId: string
+}
+
+type TLinkCreate = {
+  type: number
+  customTitle: string
+  url: string
+  storeId: string
+}
+
 type TStoresByCategory = {
   [key: string]: {
     slug: string

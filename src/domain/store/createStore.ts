@@ -13,7 +13,8 @@ const createStore = async (store: TStoreCreate, categoryIds: TConnect[], product
     },
     include: {
       address: true,
-      category: true
+      category: true,
+      products: true
     }
   })
 
