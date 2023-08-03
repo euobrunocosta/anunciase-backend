@@ -53,6 +53,7 @@ model Address {
   street        String?
   number        String?
   neighbourhood String?
+  extra         String?
   store         Store?
   cityId        String
   city          City     @relation(fields: [cityId], references: [id])
