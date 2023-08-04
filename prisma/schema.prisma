@@ -102,6 +102,7 @@ model Token {
   active    Boolean   @default(false)
   start     DateTime?
   end       DateTime?
+  master    Boolean   @default(false)
   cityId    String?
   city      City?     @relation(fields: [cityId], references: [id])
   createdAt DateTime  @default(now())
