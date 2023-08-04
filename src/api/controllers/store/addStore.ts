@@ -12,11 +12,13 @@ const addStore = async (req: Request, res: Response) => {
     title,
     slug,
     image,
+    owners,
     categories,
     products,
     street,
     number,
     neighbourhood,
+    extra,
     cityId
   } = req.body
 
@@ -40,7 +42,7 @@ const addStore = async (req: Request, res: Response) => {
     })
   }
 
-  const existingStore = await getStore(slug);
+  const existingStore = await getStore(slug)
 
   if (existingStore) {
     return res.status(400).send({
@@ -52,6 +54,7 @@ const addStore = async (req: Request, res: Response) => {
     street,
     number,
     neighbourhood,
+    extra,
     cityId
   }
 
@@ -61,6 +64,7 @@ const addStore = async (req: Request, res: Response) => {
     title,
     slug,
     image,
+    owners,
     addressId: newAddress.id,
   }
 

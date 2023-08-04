@@ -14,6 +14,7 @@ type TAddressCreate = {
   street: string
   number: string
   neighbourhood: string
+  extra: string
   cityId: string
 }
 
@@ -27,6 +28,7 @@ type TStoreCreate = {
   title: string
   slug: string
   image: string
+  owners: string
   addressId: string
 }
 
