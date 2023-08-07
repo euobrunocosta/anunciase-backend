@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 
-class PrimsaService {
+class PrismaService {
   private prisma: PrismaClient
 
   constructor() {
@@ -12,4 +12,4 @@ class PrimsaService {
   }
 }
 
-export default new PrimsaService().getPrismaClient()
+export default new PrismaService().getPrismaClient()

@@ -9,7 +9,7 @@ const getPermission = async (req: Request, res: Response) => {
 
   if (!token) {
     return res.status(403).send({
-      message: TOKEN_ERROR_MESSAGES.INVAILD
+      message: TOKEN_ERROR_MESSAGES.INVALID
     })
   }
 

@@ -5,6 +5,7 @@ import linksRouter from './links'
 import permissionRouter from './permission'
 import productsRouter from './products'
 import storesRouter from './stores'
+import tokenRouter from './token'
 
 const router = Router()
 
@@ -14,6 +15,7 @@ router.get('/', (_: Request, res: Response) => {
   })
 })
 
+router.use('/token', tokenRouter)
 router.use('/cities', citiesRouter)
 router.use('/stores', storesRouter)
 router.use('/products', productsRouter)
