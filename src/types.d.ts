@@ -19,7 +19,7 @@ type TCity = {
   slug: string
 }
 
-type TAddressCreate = {
+type TAddressData = {
   street: string
   number: string
   neighbourhood: string
@@ -32,14 +32,18 @@ type TStore = {
   category: TCategory[]
   link: TLink[]
   address: TAddress
+  addressId: string
+  tokenId: string
 }
 
-type TStoreCreate = {
+type TStoreData = {
+  id?: string
   title: string
   slug: string
   image: string
   owners: string
   addressId: string
+  tokenId: string
 }
 
 type TCategoryCreate = {

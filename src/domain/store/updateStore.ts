@@ -1,14 +1,20 @@
 import prisma from '@infra/PrismaService'
 
-const connectProductsToStore = async (productIds: TConnect[], storeSlug: string) => {
+const updateStore = async (store: TStoreData, categoryIds: TConnect[], productIds: TConnect[]) => {
   const updatedStore = await prisma.store.update({
+    where: {
+      id: store.id
+    },
     data: {
+      ...store,
+      category: {
+        set: [],
+        connect: categoryIds
+      },
       products: {
+        set: [],
         connect: productIds
       }
-    },
-    where: {
-      slug: storeSlug
     },
     include: {
       address: true,
@@ -20,4 +26,4 @@ const connectProductsToStore = async (productIds: TConnect[], storeSlug: string)
   return updatedStore
 }
 
-export default connectProductsToStore
+export default updateStore

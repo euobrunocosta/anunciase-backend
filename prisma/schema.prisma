@@ -23,6 +23,8 @@ model Store {
   link        Link[]
   products    Product[]
   sponsorings Sponsoring[]
+  tokenId     String?
+  token       Token?       @relation(fields: [tokenId], references: [id])
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
 }
@@ -107,4 +109,5 @@ model Token {
   city      City?     @relation(fields: [cityId], references: [id])
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+  Store     Store[]
 }

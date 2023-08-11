@@ -1,6 +1,6 @@
 import prisma from '@infra/PrismaService'
 
-const createStore = async (store: TStoreCreate, categoryIds: TConnect[], productIds: TConnect[]) => {
+const createStore = async (store: TStoreData, categoryIds: TConnect[], productIds: TConnect[]) => {
   const newStore = await prisma.store.create({
     data: {
       ...store,

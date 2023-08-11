@@ -2,7 +2,7 @@ import prisma from '@infra/PrismaService'
 
 const getStores = async (citySlug: string, categorySlug?: string) => {
   const categoryWhere = categorySlug
-    ? { 
+    ? {
       category: {
         some: {
           slug: categorySlug
@@ -10,9 +10,10 @@ const getStores = async (citySlug: string, categorySlug?: string) => {
       }
     }
     : {}
-  
+
   const stores = await prisma.store.findMany({
     where: {
+      active: true,
       address: {
         city: {
           slug: citySlug
