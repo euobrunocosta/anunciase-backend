@@ -62,6 +62,13 @@ type TLinkCreate = {
   storeId: string
 }
 
+type TTokenCreate = {
+  active: boolean
+  master: boolean
+  generate: boolean
+  cityId: string
+}
+
 type TStoresByCategory = {
   [key: string]: {
     slug: string
